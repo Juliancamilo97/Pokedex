@@ -1,0 +1,38 @@
+.topnav {
+    overflow: hidden;
+    background: rgb(40 , 44, 53);
+    height: 45px;
+    width: 100%;   
+    top: 0; 
+    position: fixed;
+}
+
+.topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.topnav a:hover {
+    background: rgb(24 , 145, 185);
+    color: rgb(40 , 44, 53);
+    font-weight: bold;
+}
+
+.topnav a img{
+    width: 28px;
+    height: 28px;
+}
+
+.topnav a.home-class {
+    background: rgb(99, 222, 255);
+    width: 45px;
+    padding: 10px 0;
+}
+
+.topnav a.home-class:hover {
+    background-color: rgb(24 , 145, 185);
+}

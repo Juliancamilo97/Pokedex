@@ -1,0 +1,23 @@
+.card-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.user-card {
+border: 1px dotted lightcoral;
+margin-bottom: 20px;
+padding: 20px;
+width: 300px;
+}
+
+.user-avatar {
+text-align: center;
+}
+
+.user-avatar__imagen {
+border-radius: 50%;
+}
+
+.user-info__name {
+text-align: center;
+}

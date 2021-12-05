@@ -1,53 +1,75 @@
-import React from 'react'
-import { Navbar, Container, Offcanvas, Nav, NavDropdown, Form, FormControl , Button } from 'react-bootstrap'; 
+import React, {useState, useEffect} from 'react'
+import { Navbar, Container, Nav, NavDropdown, Form, FormControl , Button } from 'react-bootstrap'; 
+import { Link } from 'react-router-dom'
 
 export default function Barra()  {
+
+    const [show, setShow] = useState(true)
+    const [optionRegister, setOptionRegister] = useState(false)
+    const [menu, setMenu] = useState(false)
+
+    useEffect(() => {
+        
+        if (sessionStorage.getItem('token')) {
+            setMenu(true)
+            setShow(false)
+            setOptionRegister(true)
+        }
+    
+    }, []);
+
+    const out = () => {
+        sessionStorage.clear()
+        window.location.href = "/"
+    }
+
     return (
         <div>
-            <Navbar bg="dark" variant='dark' expand={false}>
-            <Container fluid>
-                <Navbar.Toggle aria-controls="offcanvasNavbar" />
-                <Navbar.Brand href="#"></Navbar.Brand>
-                <Navbar.Brand href="#"></Navbar.Brand>
-                <Navbar.Brand href="#"></Navbar.Brand>
-                <Navbar.Brand href="#">Bienvenido : Francy</Navbar.Brand>
-                <Navbar.Brand href="#">Cerrar Sesión</Navbar.Brand>
-                
-                
+            <Navbar bg="dark" expand="lg">
+                <Container fluid>
+                    <Navbar.Brand href="#"><i class="fas fa-home"></i> Home</Navbar.Brand>
 
-                <Navbar.Offcanvas
-                id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel"
-                placement="start"
-                >
+                    <Navbar.Toggle aria-controls="navbarScroll" />
+                    <Navbar.Collapse id="navbarScroll">
+                        <Nav
+                            className="me-auto my-2 my-lg-0"
+                            style={{ maxHeight: '110px' }}
+                            navbarScroll
+                        >
+                            <Nav.Link href="#action2"> Buscador </Nav.Link>
 
-                <Offcanvas.Header closeButton>
-                    <Offcanvas.Title id="offcanvasNavbarLabel">Menú</Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                    <Nav className="justify-content-end flex-grow-1 pe-3">
-                        <Nav.Link href="#action1">Inicio</Nav.Link>
-                        <Nav.Link href="#action2">Registros</Nav.Link>
-                        
-                        <NavDropdown title="Registrar" id="offcanvasNavbarDropdown">
-                            <NavDropdown.Item href="/verEquipos">Ver Equipos</NavDropdown.Item>
-                            <NavDropdown.Item href="/guardarEquipo">Guardar Equipo</NavDropdown.Item>
-                        </NavDropdown>
+                            <NavDropdown title=" Tu Cuenta " id="offcanvasNavbarDropdown" >                         
+                                <NavDropdown.Item href="/login"><i class="fas fa-user-alt"></i> Iniciar Sesión</NavDropdown.Item>
+                                <NavDropdown.Item> <Link hidden={optionRegister} to="/registerUser"> <i class="fas fa-user-plus"></i> Registro de Usuario</Link></NavDropdown.Item>
+                                <NavDropdown.Item hidden={show} href="#"><i class="fas fa-user-times"></i> Cerrar Sesión </NavDropdown.Item>
+                                <NavDropdown.Item href="/deleteUser"><i class="fas fa-user-minus"></i> Eliminar Usuario</NavDropdown.Item>
+                            </NavDropdown>
 
-                    </Nav>
-                    <Form className="d-flex">
-                    <FormControl
-                        type="search"
-                        placeholder="Search"
-                        className="me-2"
-                        aria-label="Search"
-                    />
-                    <Button variant="outline-success">Buscar</Button>
-                    </Form>
-                </Offcanvas.Body>
-                </Navbar.Offcanvas>
-            </Container>
+                            <NavDropdown title=" Tu Equipo " id="navbarScrollingDropdown" hidden={show}>
+                                <NavDropdown.Item href="/verEquipos">Ver Equipos</NavDropdown.Item>
+                                <NavDropdown.Item href="/guardarEquipo">Guardar Equipo</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                    <NavDropdown.Item href="#action5">Tus Favoritos</NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
+
+                        <Form className="d-flex">
+                            <FormControl
+                            type="search"
+                            placeholder="Búsqueda Rápida"
+                            className="me-2"
+                            aria-label="Search"
+                            />
+                            <Button variant="outline-success">Buscar</Button>
+                        </Form>
+                    </Navbar.Collapse>
+
+                </Container>
+
+                <Navbar.Brand hidden={show} href="#"><i class="fas fa-dragon"></i> <i class="fas fa-user"></i> Hola Entrenador</Navbar.Brand>
+                <Navbar.Brand hidden={show} href="#">  <i class="fas fa-user-times"></i></Navbar.Brand>
             </Navbar>
+
         </div>
     )
 }

@@ -3,29 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
-import Menu from './components/Menu';
-import Team from './components/Team';
+import Axios from 'axios'
 
-// Funciones y Clases
-function TheWelcome (props) {
-  return <h1>Hello, {props.name}</h1>;  
-}
+// import Team from './components/Team';
 
-//Variable
-const nombres = 'Fran'
-//Componente a través de variable
-const WelcomeComponent = <TheWelcome name = {nombres} />
+Axios.defaults.baseURL='http://localhost:4000'
 
 ReactDOM.render(
-  <React.StrictMode> 
-      <App />
-      {/* <Menu /> */}
-      {/* Llamar componente */}
-      { WelcomeComponent }
-      
-      <h1>Equipo de Trabajo</h1>
-      {/* <Team /> */}
-      
+  <React.StrictMode>
+      <App />       
   </React.StrictMode>,
   document.getElementById('root')
 );

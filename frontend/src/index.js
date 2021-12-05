@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
-import Team from './Team';
-import reportWebVitals from './reportWebVitals';
-import Menu from './Menu';
+import Menu from './components/Menu';
+import Team from './components/Team';
 
 // Funciones y Clases
 function TheWelcome (props) {
@@ -18,15 +18,16 @@ const WelcomeComponent = <TheWelcome name = {nombres} />
 
 ReactDOM.render(
   <React.StrictMode> 
-      <Menu />
+      <App />
+      {/* <Menu /> */}
       {/* Llamar componente */}
       { WelcomeComponent }
       
       <h1>Equipo de Trabajo</h1>
-      <Team />
-      <App />
+      {/* <Team /> */}
+      
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-reportWebVitals();
+

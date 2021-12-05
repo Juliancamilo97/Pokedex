@@ -8,8 +8,7 @@ UsersCtrl.createUser = async(req,res) => {
     const NewUser = new User ({
         name,
         email,
-        password,
-        
+        password,        
     })
 
     const emailUser = await User.findOne({email:email})

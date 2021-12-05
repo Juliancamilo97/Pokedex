@@ -25,7 +25,7 @@ export default function Barra()  {
 
     return (
         <div>
-            <Navbar bg="dark" expand="lg">
+            <Navbar bg="light" expand="lg">
                 <Container fluid>
                     <Navbar.Brand href="#"><i class="fas fa-home"></i> Home</Navbar.Brand>
 
@@ -33,15 +33,15 @@ export default function Barra()  {
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
                             className="me-auto my-2 my-lg-0"
-                            style={{ maxHeight: '110px' }}
+                            style={{ maxHeight: '200px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="#action2"> Buscador </Nav.Link>
+                            {/* <Nav.Link href="#action2"> Buscador </Nav.Link> */}
 
                             <NavDropdown title=" Tu Cuenta " id="offcanvasNavbarDropdown" >                         
-                                <NavDropdown.Item href="/login"><i class="fas fa-user-alt"></i> Iniciar Sesión</NavDropdown.Item>
+                                <NavDropdown.Item href="/"><i class="fas fa-user-alt"></i> Iniciar Sesión</NavDropdown.Item>
                                 <NavDropdown.Item> <Link hidden={optionRegister} to="/registerUser"> <i class="fas fa-user-plus"></i> Registro de Usuario</Link></NavDropdown.Item>
-                                <NavDropdown.Item hidden={show} href="#"><i class="fas fa-user-times"></i> Cerrar Sesión </NavDropdown.Item>
+                                <NavDropdown.Item hidden={show} href="#" onClick={() => out()} ><i class="fas fa-user-times"></i> Cerrar Sesión </NavDropdown.Item>
                                 <NavDropdown.Item href="/deleteUser"><i class="fas fa-user-minus"></i> Eliminar Usuario</NavDropdown.Item>
                             </NavDropdown>
 
@@ -53,7 +53,7 @@ export default function Barra()  {
                             </NavDropdown>
                         </Nav>
 
-                        <Form className="d-flex">
+                        {/* <Form className="d-flex">
                             <FormControl
                             type="search"
                             placeholder="Búsqueda Rápida"
@@ -61,12 +61,12 @@ export default function Barra()  {
                             aria-label="Search"
                             />
                             <Button variant="outline-success">Buscar</Button>
-                        </Form>
+                        </Form> */}
                     </Navbar.Collapse>
 
                 </Container>
 
-                <Navbar.Brand hidden={show} href="#"><i class="fas fa-dragon"></i> <i class="fas fa-user"></i> Hola Entrenador</Navbar.Brand>
+                <Navbar.Brand hidden={show} href="#"><i class="fas fa-dragon"></i> <i class="fas fa-user"></i> Hola Entrenador {sessionStorage.getItem('name')} </Navbar.Brand>
                 <Navbar.Brand hidden={show} href="#">  <i class="fas fa-user-times"></i></Navbar.Brand>
             </Navbar>
 

@@ -10,14 +10,11 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import React, {useState} from 'react'
 import Axios from 'axios'
 import Swal from 'sweetalert2'
 import SearchPokemon from '../data/SearchPokemon';
 
-
-const theme = createTheme();
 
 export default function SignInSide() {
 
@@ -26,7 +23,7 @@ export default function SignInSide() {
 
     const login = async(e) => {
 
-        e.prevent.default();
+        e.preventDefault();
         const user = {email, password}
         const answer = await Axios.post('/user/login', user);
         console.log(answer)
@@ -60,22 +57,22 @@ export default function SignInSide() {
     }
 
     return (
-        <ThemeProvider theme={theme}>
-            <Grid container component="main" sx={{ height: '100vh' }}>
 
+        <div className="pokedex">
+        
+            <Grid container component="main" sx={{ 
+                height: '100vh',
+                backgroundImage:'url(https://assets.pokemon.com//assets/cms2-es-es/img/misc/virtual-backgrounds/sword-shield/pokemon-in-the-wild.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',}}>
+        
             <CssBaseline />
-                <Grid item xs={false} sm={4} md={7}
-                    sx={{
-                        backgroundImage: 'url(https://source.unsplash.com/random)',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}                 
-                > 
+                <Grid item xs={false} sm={4} md={7}>
                     <SearchPokemon/>
                 </Grid>
 
-                <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+                <Grid item xs={12} sm={4} md={5} component={Paper} elevation={6} square>
+                <div className="pokedex-left" >
                     <Box
                         sx={{
                         my: 8,
@@ -94,6 +91,7 @@ export default function SignInSide() {
                         </Typography>
                         <Box component="form" noValidate onSubmit={login} sx={{ mt: 1 }}>
                             <TextField
+                                className="pokemon-input"
                                 margin="normal"
                                 required
                                 fullWidth
@@ -105,6 +103,7 @@ export default function SignInSide() {
                                 onChange = {(e)=> setEmail(e.target.value)}
                             />
                             <TextField
+                                className="pokemon-input"
                                 margin="normal"
                                 required
                                 fullWidth
@@ -119,24 +118,25 @@ export default function SignInSide() {
                                 control={<Checkbox value="remember" color="primary" />}
                                 label="Recuérdame"
                             />
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
-                            >Iniciar Sesión
-                            </Button>
+                            <Button className="pokemon-btn" type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>Iniciar Sesión </Button>
+                            
                             <Grid container>
                                 <Grid item>
-                                <Link href="#" variant="body2">
-                                    {"No tienes una cuenta? Regístrate"}
-                                </Link>
+                                    <Link href="#" variant="body2">
+                                        {"No tienes una cuenta? Regístrate"}
+                                    </Link>
                                 </Grid>
                             </Grid>                        
                         </Box>
                     </Box>
+                    </div>
+                    
+            
                 </Grid>
+                
             </Grid>
-            </ThemeProvider>
+            
+            
+            </div>
         );
 }

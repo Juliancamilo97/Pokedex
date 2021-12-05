@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import axios from "axios";
-import { Card, Col, InputGroup, FormControl, SplitButton, Dropdown, Container } from 'react-bootstrap'; 
+import { Card, InputGroup, FormControl, Container } from 'react-bootstrap'; 
 // import Pokedex from 'pokedex-promise-v2';
+import '../styles/Pokedex.css';
 
 function SearchPokemon() {
 
@@ -36,39 +37,48 @@ function SearchPokemon() {
     console.log(pokemonData);
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>                
-                    <InputGroup type="text" onChange={handleChange} placeholder="Pokémon a Buscar" className="mb-3">
-                        <FormControl aria-label="Text input with dropdown button" />
-                        <SplitButton
-                        variant="outline-secondary" onClick={handleChange} title="Buscar" id="segmented-button-dropdown-2" alignRight>
-                            <Dropdown.Item href="#">Nombre</Dropdown.Item>
-                            <Dropdown.Item href="#">Id</Dropdown.Item>
-                            <Dropdown.Item href="#">Tipo</Dropdown.Item>                
-                        </SplitButton>
-                    </InputGroup>
-                </label>
-            </form>
+        <div className="pokedex-left">                
+            <div className="pokedex-left-top">
+                <div className='light is-sky is-big'/>
+                <div className="light is-red" />
+                <div className="light is-yellow" />
+                <div className="light is-green" />
+            </div>
 
-            {pokemonData.map((data) => {
-                return (
-                    <Container>
-                        <Col>
-                            <Card>
-                                <Card.Img className="imgPok" variant="top" src={data.sprites["front_default"]} />
-                                    <Card.Body>
-                                        <Card.Title>{data.name}</Card.Title>
-                                        <Card.Text>Tipo:  {pokemonType} </Card.Text>
-                                        <Card.Text>Altura:  {data.height*10} cm </Card.Text>
-                                        <Card.Text>Peso:  {data.weight*10} g</Card.Text>
-                                        <Card.Text>N° Pokédex:  {data.id} </Card.Text>
-                                    </Card.Body>
-                            </Card>
-                        </Col>
-                    </Container>
-                );
-            })}
+                {pokemonData.map((data) => {
+                    return (
+                        <div className="pokedex-screen-container">
+                            
+                                <img className="pokemon-img" variant="top" src={data.sprites["front_default"]} />
+                                    <div className="pokemon-info">
+                                        <span className="pokemon-name">{data.name}</span>
+                                        <span>Tipo:</span>
+                                        <span>{pokemonType} </span>
+                                        <span>Altura: </span>
+                                        <span>{data.height*10} cm </span>
+                                        <span>Peso:</span>
+                                        <span>{data.weight*10} g</span>
+                                        <span>N° Pokédex:</span>
+                                        <span>{data.id} </span>
+                                    </div>                            
+                        </div>
+                    );
+                })}
+            <div className="pokedex-left-bottom">
+                <div className="pokedex-left-bottom-lights">
+                    <div className="light is-blue is-medium" />                    
+                    <div className="light is-green is-large" />
+                    <div className="light is-orange is-large" />                    
+                </div>
+                <form className="pokemon-form" onSubmit={handleSubmit}>
+                        <label>                
+                            <InputGroup className="pokemon-input" type="text" onChange={handleChange} placeholder="Pokémon a Buscar" className="mb-3">
+                                <FormControl aria-label="Text input with dropdown button" />
+                                <input type="submit" className="pokemon-btn" value=""/>
+                            </InputGroup>
+                        </label>
+                    </form>
+            </div>
 
         </div>
     )

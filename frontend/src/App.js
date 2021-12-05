@@ -12,8 +12,8 @@ function App() {
   return (
     <Router>
       <Barra/>
-      <Route path='/' exact component = {Login}/>
-      <Route path='/index' exact component = {Index}/>
+      <Route path='/login' exact component = {Login}/>
+      <Route path='/' exact component = {Index}/>
       <Route path='/registerUser' exact component = {RegisterUser}/>
       <Route path='/guardarEquipo' exact component = {GuardarEquipo}/>
       <Route path='/verEquipos' exact component = {VerEquipos}/>

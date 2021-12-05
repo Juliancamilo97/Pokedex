@@ -66,8 +66,8 @@ export default function Barra()  {
 
                 </Container>
 
-                <Navbar.Brand hidden={show} href="#"><i class="fas fa-dragon"></i> <i class="fas fa-user"></i> Hola Entrenador {sessionStorage.getItem('name')} </Navbar.Brand>
-                <Navbar.Brand hidden={show} href="#">  <i class="fas fa-user-times"></i></Navbar.Brand>
+                <Navbar.Brand hidden={show}><i class="fas fa-dragon"></i> <i class="fas fa-user"></i> Hola Entrenador {sessionStorage.getItem('name')} </Navbar.Brand>
+                <Navbar.Brand hidden={show} href="/deleteUser">  <i class="fas fa-user-times"></i></Navbar.Brand>
             </Navbar>
 
         </div>

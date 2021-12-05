@@ -56,6 +56,13 @@ export default function SignInSide() {
 
     }
 
+    if (sessionStorage.getItem('token')) {            
+        window.location.href =  '/'
+    }    else {
+       
+    
+
+
     return (
 
         <div className="pokedex">
@@ -139,4 +146,6 @@ export default function SignInSide() {
             
             </div>
         );
+
+    }
 }

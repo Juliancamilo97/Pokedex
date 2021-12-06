@@ -47,10 +47,10 @@ function SearchPokemon() {
 
                 {pokemonData.map((data) => {
                     return (
-                        <div className="pokedex-screen-container">
-                            
+                        <div>
+                            <div className="pokedex-screen-container">                            
                                 <img className="pokemon-img" variant="top" src={data.sprites["front_default"]} />
-                                    <div className="pokemon-info">
+                                <div className="pokemon-info">
                                         <span className="pokemon-name">{data.name}</span>
                                         <span>Tipo:</span>
                                         <span>{pokemonType} </span>
@@ -60,7 +60,8 @@ function SearchPokemon() {
                                         <span>{data.weight*10} g</span>
                                         <span>N° Pokédex:</span>
                                         <span>{data.id} </span>
-                                    </div>                            
+                                    </div>                                                         
+                            </div>
                         </div>
                     );
                 })}

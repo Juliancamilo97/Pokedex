@@ -48,26 +48,25 @@ export default  function VerEquipos() {
     return (
 
         <div>
-            <form onSubmit = { ViewTeam }>
-                <button  type="submit">Ver Equipo</button>
-            </form>
+            <div className="pokedex-left-top">
+                <form onSubmit = { ViewTeam }>
+                    <button className="pokemon-btn" style={{width:200, align:'center'}} type="submit">Ver Equipo</button>                    
+                </form>
+
+            </div>
     
-        {pokemonArray.map((data) => {
-        return (
-            <div>
-                <Row xs={1} md={3} className="g-4">
+            <Row xs={2} md={3} className="g-4">
+                {pokemonArray.map((data) => (                                    
                         <Col>
                             <Card>
-                                <img className="pokemon-img" variant="top" src={data.sprites["front_default"]} />
+                                <img  variant="top" src={data.sprites["front_default"]} />
                                 <Card.Body>
                                     <Card.Title className="pokemon-name">{data.name}</Card.Title>
                                 </Card.Body>
                             </Card>
-                        </Col>
-                </Row>
-            </div>
-            )
-        })}
+                        </Col>                            
+                ))}
+            </Row>
         </div>
     )
 }

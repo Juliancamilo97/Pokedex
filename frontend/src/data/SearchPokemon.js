@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 import axios from "axios";
-import { Card, InputGroup, FormControl, Container } from 'react-bootstrap'; 
-// import Pokedex from 'pokedex-promise-v2';
+import { InputGroup, FormControl } from 'react-bootstrap'; 
 import '../styles/Pokedex.css';
 
 function SearchPokemon() {
 
-    // const P = new Pokedex();
 
     const [pokemon, setPokemon] = useState("ditto")
     const [pokemonData, setPokemonData] = useState([])
@@ -45,12 +43,15 @@ function SearchPokemon() {
                 <div className="light is-green" />
             </div>
 
-                {pokemonData.map((data) => {
-                    return (
-                        <div>
-                            <div className="pokedex-screen-container">                            
-                                <img className="pokemon-img" variant="top" src={data.sprites["front_default"]} />
-                                <div className="pokemon-info">
+                {pokemonData.map((data) => (
+                    
+                        <div className="pokedex-screen-container">
+                            <div className="divTableRow">  
+                                <div className="divTableCell" >                           
+                                    <img className="pokemon-img" variant="top" src={data.sprites["front_default"]} />
+                                </div>
+                                <div className="divTableCell" > 
+                                    <div className="pokemon-info">
                                         <span className="pokemon-name">{data.name}</span>
                                         <span>Tipo:</span>
                                         <span>{pokemonType} </span>
@@ -61,10 +62,11 @@ function SearchPokemon() {
                                         <span>N° Pokédex:</span>
                                         <span>  {data.id} </span>
                                     </div>
-                                </div>                            
+                                </div>
+                            </div>                            
                         </div>
-                    );
-                })}
+                    ),
+                )}
             <div className="pokedex-left-bottom">
                 <div className="pokedex-left-bottom-lights">
                     <div className="light is-blue is-medium" />                    
@@ -73,9 +75,9 @@ function SearchPokemon() {
                 </div>
                 <form className="pokemon-form" onSubmit={handleSubmit}>
                     <label>                
-                        <InputGroup className="pokemon-input" type="text" onChange={handleChange} placeholder="Pokémon a Buscar" className="mb-3">
-                            <FormControl aria-label="Text input with dropdown button" />
-                            <input type="submit" className="pokemon-btn" value=""/>
+                        <InputGroup className="pokemon-input" style={{width:'90%', alignSelf:'center'}} type="text" onChange={handleChange} placeholder="Pokémon a Buscar" className="mb-3">
+                            <FormControl placeholder="Pokémon a Buscar" aria-label="Text input with dropdown button" />
+                            <input type="submit" className="pokemon-btn"   value=""/>
                         </InputGroup>
                     </label>
                 </form>

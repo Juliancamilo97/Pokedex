@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import Swal from 'sweetalert2'
-import { InputGroup, SplitButton, Dropdown, FormControl } from 'react-bootstrap'; 
-import SearchPokemon from '../data/SearchPokemon';
-
+import { InputGroup,  FormControl } from 'react-bootstrap'; 
 
 export default function GuardarEquipo() {
 
@@ -72,10 +70,16 @@ export default function GuardarEquipo() {
 
     return (
     <div className="">
+                {/* <form>
+                    <button className="light is-red" >1</button>
+                    <button className="light is-yellow" />
+                    <button className="light is-green" />
+                    <button className="light is-sky" />
+                </form> */}
                 <form className="pokemon-form" onSubmit={handleSubmit}>
                     <label>                
                         <InputGroup className="pokemon-input" type="text" onChange={handleChange} placeholder="Pokémon a Buscar" className="mb-3">
-                            <FormControl aria-label="Text input with dropdown button" />
+                            <FormControl placeholder="Pokémon a Agregar" aria-label="Text input with dropdown button" />
                             <input type="submit" className="pokemon-btn" value=""/>
                         </InputGroup>
                     </label>
@@ -83,15 +87,17 @@ export default function GuardarEquipo() {
 
         {pokemonData.map((data) => {
         return (
-            <div className="container">
-                <form onSubmit = { handleAdd }>    
-                    <img src={data.sprites["front_default"]} />
-                    <div>
+            <div  className="pokedex-screen-container">
+                <form  className="divTableRow" onSubmit = { handleAdd }>
+                    <div className="divTableCell" >    
+                        <img style={{width: 150}} src={data.sprites["front_default"]} />
+                    </div>
+                    <div className="divTableCell">
                         <div className="pokemon-name">{data.name}</div>
                         <div className="divTableRow">Tipo: {pokemonType}</div>
                         <div className="divTableRow">Número de Batallas: {data.game_indices.length}</div>                
                     </div>
-                    <div>
+                    <div className="divTableCell">    
                         <button type="submit">Agregar</button>
                     </div>
                 </form>

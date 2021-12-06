@@ -50,7 +50,7 @@ export default function SignInSide() {
                 showConfirmButton: false,
                 timer: 1500
             })
-            window.location.href='/index'
+            window.location.href='/'
         }
 
     }
@@ -124,7 +124,7 @@ export default function SignInSide() {
                                 control={<Checkbox value="remember" color="primary" />}
                                 label="Recuérdame"
                             />
-                            <Button className="pokemon-btn" type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>Iniciar Sesión </Button>
+                            <Button className="pokemon-btn" type="submit" style={{width:200}} fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>Iniciar Sesión </Button>
                             
                             <Grid container>
                                 <Grid item>

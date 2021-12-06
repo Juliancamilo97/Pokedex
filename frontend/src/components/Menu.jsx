@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import { Navbar, Container, Nav, NavDropdown, Form, FormControl , Button } from 'react-bootstrap'; 
-import { Link } from 'react-router-dom'
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'; 
+import { alignPropType } from 'react-bootstrap/esm/types';
 
 export default function Barra()  {
 
@@ -27,7 +27,7 @@ export default function Barra()  {
         <div>
             <Navbar bg="light" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="/"><i class="fas fa-home"></i> Home</Navbar.Brand>
+                    <Navbar.Brand href="/"><i class="fas fa-home"></i></Navbar.Brand>
 
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
@@ -45,21 +45,13 @@ export default function Barra()  {
                             </NavDropdown>
                         </Nav>
 
-                        {/* <Form className="d-flex">
-                            <FormControl
-                            type="search"
-                            placeholder="Búsqueda Rápida"
-                            className="me-2"
-                            aria-label="Search"
-                            />
-                            <Button variant="outline-success">Buscar</Button>
-                        </Form> */}
                     </Navbar.Collapse>
-                </Container>
-
+                    
                 <Navbar.Brand><a hidden={optionRegister} href="/registerUser"><i class="fas fa-dragon"></i><i class="fas fa-user"></i> Hola Entrenador</a></Navbar.Brand>
                 <Navbar.Brand hidden={show}>Hola {sessionStorage.getItem('name')} </Navbar.Brand>
-                <Navbar.Brand hidden={show} href="" onClick={() => out()}>  <i class="fas fa-user-times"></i></Navbar.Brand>                
+                <Navbar.Brand hidden={show} href="" onClick={() => out()} >  <i class="fas fa-user-times"></i></Navbar.Brand>                
+                </Container>
+
             </Navbar>
 
         </div>

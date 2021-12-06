@@ -42,11 +42,13 @@ perspective: 1000px;
 position: relative;
 overflow: hidden;
 height: 90%;
-width: 50rem;
+width: 90%;
 margin: 0 auto;
 overflow: initial;
 box-shadow: 0 2px 12px -2px rgba(255, 0, 0, 0.4);
 }
+
+
 
 .pokedex:hover .pokedex-right-front,
 .pokedex.is-active .pokedex-right-front {
@@ -210,7 +212,7 @@ background-color: var(--yellow);
 background: var(--red);
 /* height: inherit; */
 height: calc(100%);
-width: inherit;
+width: calc(100%);
 border-radius: 10px 0 0 10px;
 border: 1px solid black;
 border-right: 10px solid black;
@@ -259,6 +261,7 @@ background: white;
 border: 2px solid black;
 border-radius: 10px;
 height: 45%;
+width: 60%;
 display: flex;
 align-items: center;
 }
@@ -281,7 +284,7 @@ grid-area: title;
 font-weight: 700;
 }
 .pokemon-img{
-width: 50%;
+width: 200%;
 transform: scale(1.2);
 align-self: center;
 grid-area: img;
@@ -328,7 +331,14 @@ outline: 0;
 font-size: 1em;
 flex-grow: 1;
 transition: .2s;
+
 }
+
+.pokedex-input::placeholder{
+    color: #01fbfb;
+    
+}
+
 .pokemon-input:focus {
 border-color: #ffffff;
 }
@@ -338,7 +348,7 @@ color: rgba(255,255,255, 1);
 
 }
 .pokemon-input::-webkit-input-placeholder {
-color: rgba(255,255,255, .8);
+color: rgba(-sky);
 }
 
 .pokemon-btn{

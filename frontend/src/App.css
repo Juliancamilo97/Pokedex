@@ -23,3 +23,30 @@
   width: 50px;
 
 }
+
+.divTable {
+  display: table;
+  max-width: 20em;
+  float: right;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  align-self: center;
+}
+.divTableRow {
+  display: table-row;
+  align-self: center;
+  box-align: center
+}
+.divTableHeading {
+  background-color: #eee;
+  display: table-header-group;
+}
+.divTableCell,
+.divTableHead {
+  border: 0px solid #999999;
+  display: table-cell;
+  padding: 0px 50px;
+  align-items: center;
+  vertical-align: middle;
+}

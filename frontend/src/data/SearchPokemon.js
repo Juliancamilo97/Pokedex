@@ -59,9 +59,9 @@ function SearchPokemon() {
                                         <span>Peso:</span>
                                         <span>{data.weight*10} g</span>
                                         <span>N° Pokédex:</span>
-                                        <span>{data.id} </span>
-                                    </div>                                                         
-                            </div>
+                                        <span>  {data.id} </span>
+                                    </div>
+                                </div>                            
                         </div>
                     );
                 })}
@@ -72,13 +72,13 @@ function SearchPokemon() {
                     <div className="light is-orange is-large" />                    
                 </div>
                 <form className="pokemon-form" onSubmit={handleSubmit}>
-                        <label>                
-                            <InputGroup className="pokemon-input" type="text" onChange={handleChange} placeholder="Pokémon a Buscar" className="mb-3">
-                                <FormControl aria-label="Text input with dropdown button" />
-                                <input type="submit" className="pokemon-btn" value=""/>
-                            </InputGroup>
-                        </label>
-                    </form>
+                    <label>                
+                        <InputGroup className="pokemon-input" type="text" onChange={handleChange} placeholder="Pokémon a Buscar" className="mb-3">
+                            <FormControl aria-label="Text input with dropdown button" />
+                            <input type="submit" className="pokemon-btn" value=""/>
+                        </InputGroup>
+                    </label>
+                </form>
             </div>
 
         </div>

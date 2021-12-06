@@ -14,6 +14,7 @@ app.use(cors({origen: '*'}))
 
 app.use('/user', require('./routes/User.route'))
 app.use('/house', require('./routes/House.route'))
+app.use('/pokemon', require('./routes/Pokemon.route'))
 
 
 

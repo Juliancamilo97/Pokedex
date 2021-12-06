@@ -3,7 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -36,23 +35,17 @@ import Swal from 'sweetalert2'
                 timer: 1500
             })
         } else {
-
             Swal.fire({
                 icon:'success',
                 title:"Usuario creado correctamente",
                 showConfirmButton:false,
                 timer:1500
-            })
-        
-        
+            })                
             setTimeout(()=>{
                 window.location.href='/'
             },1600)
-        }
-    
+        }    
     }
-
-
 
     return (
         <ThemeProvider theme={theme}>
@@ -123,9 +116,9 @@ import Swal from 'sweetalert2'
                 <Grid container justifyContent="flex-end">
 
                 <Grid item>
-                    <Link to="/login" variant="body2">
+                    <a href="/login" variant="body2">
                     Ya tienes una Cuenta? Conéctate
-                    </Link>
+                    </a>
                 </Grid>
                 </Grid>
             </Box>

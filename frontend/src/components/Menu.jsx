@@ -27,7 +27,7 @@ export default function Barra()  {
         <div>
             <Navbar bg="light" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="#"><i class="fas fa-home"></i> Home</Navbar.Brand>
+                    <Navbar.Brand href="/"><i class="fas fa-home"></i> Home</Navbar.Brand>
 
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
@@ -37,14 +37,6 @@ export default function Barra()  {
                             navbarScroll
                         >
                             {/* <Nav.Link href="#action2"> Buscador </Nav.Link> */}
-
-                            <NavDropdown title=" Tu Cuenta " id="offcanvasNavbarDropdown" >                         
-                                <NavDropdown.Item href="/"><i class="fas fa-user-alt"></i> Iniciar Sesión</NavDropdown.Item>
-                                <NavDropdown.Item> <Link hidden={optionRegister} to="/registerUser"> <i class="fas fa-user-plus"></i> Registro de Usuario</Link></NavDropdown.Item>
-                                <NavDropdown.Item hidden={show} href="#" onClick={() => out()} ><i class="fas fa-user-times"></i> Cerrar Sesión </NavDropdown.Item>
-                                <NavDropdown.Item href="/deleteUser"><i class="fas fa-user-minus"></i> Eliminar Usuario</NavDropdown.Item>
-                            </NavDropdown>
-
                             <NavDropdown title=" Tu Equipo " id="navbarScrollingDropdown" hidden={show}>
                                 <NavDropdown.Item href="/verEquipos">Ver Equipos</NavDropdown.Item>
                                 <NavDropdown.Item href="/guardarEquipo">Guardar Equipo</NavDropdown.Item>
@@ -63,11 +55,11 @@ export default function Barra()  {
                             <Button variant="outline-success">Buscar</Button>
                         </Form> */}
                     </Navbar.Collapse>
-
                 </Container>
 
-                <Navbar.Brand hidden={show}><i class="fas fa-dragon"></i> <i class="fas fa-user"></i> Hola Entrenador {sessionStorage.getItem('name')} </Navbar.Brand>
-                <Navbar.Brand hidden={show} href="/deleteUser">  <i class="fas fa-user-times"></i></Navbar.Brand>
+                <Navbar.Brand><a hidden={optionRegister} href="/registerUser"><i class="fas fa-dragon"></i><i class="fas fa-user"></i> Hola Entrenador</a></Navbar.Brand>
+                <Navbar.Brand hidden={show}>Hola {sessionStorage.getItem('name')} </Navbar.Brand>
+                <Navbar.Brand hidden={show} href="" onClick={() => out()}>  <i class="fas fa-user-times"></i></Navbar.Brand>                
             </Navbar>
 
         </div>

@@ -9,8 +9,9 @@ const Index = () => {
         return (
             <div className = "container"> 
                 <h1>Bienvenido Entrenador</h1>
-                <Route path='/guardarEquipo' exact component = {GuardarEquipo}/>
-                <Route path='/verEquipos' exact component = {VerEquipos}/>
+                <GuardarEquipo/>
+                {/* <VerEquipos/> */}
+                
             </div>
         )            
     }    else {

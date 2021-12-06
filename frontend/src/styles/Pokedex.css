@@ -315,10 +315,12 @@ column-gap: .5rem;
 margin-top: 1em;
 }
 
+
+
 .pokemon-input{
 font-family: system-ui;
 padding: 10px;
-background-color: var(--sky);
+background-color: #ffffff;
 border: none;
 border: 2px solid black;
 border-radius: 10px;

@@ -4,7 +4,6 @@ import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import CssBaseline from '@mui/material/CssBaseline';
-import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -129,9 +128,9 @@ export default function SignInSide() {
                             
                             <Grid container>
                                 <Grid item>
-                                    <Link href="#" variant="body2">
+                                <a href="/registerUser" variant="body2">
                                         {"No tienes una cuenta? Regístrate"}
-                                    </Link>
+                                </a>
                                 </Grid>
                             </Grid>                        
                         </Box>

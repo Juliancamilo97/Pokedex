@@ -45,6 +45,17 @@ export default  function VerEquipos() {
         }
     }
 
+    const clear  = async(e) => {        
+        e.preventDefault();
+        const token = sessionStorage.getItem('token')
+        const id = getPokemon(res.data.idPok)
+
+        const res = await Axios.get('./pokemon/delete/'+id, {
+            headers:{'authorization':token}          
+        })
+        
+    }
+
     return (
 
         <div>
@@ -52,13 +63,13 @@ export default  function VerEquipos() {
                 <form onSubmit = { ViewTeam }>
                     <button className="pokemon-btn" style={{width:200, align:'center'}} type="submit">Ver Equipo</button>                    
                 </form>
-
             </div>
     
             <Row xs={2} md={3} className="g-4">
                 {pokemonArray.map((data) => (                                    
                         <Col>
                             <Card>
+                                <a onClick={() => clear()}><i class="fas fa-eraser" ></i></a>
                                 <img  variant="top" src={data.sprites["front_default"]} />
                                 <Card.Body>
                                     <Card.Title className="pokemon-name">{data.name}</Card.Title>

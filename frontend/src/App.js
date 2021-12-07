@@ -12,6 +12,7 @@ function App() {
   return (
     <Router>
       <Menu/>
+      <div><br></br></div>
       <Route path='/login' exact component = {Login}/>
       <Route path='/' exact component = {Index}/>
       <Route path='/registerUser' exact component = {RegisterUser}/>

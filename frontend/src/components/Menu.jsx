@@ -25,19 +25,19 @@ export default function Barra()  {
 
     return (
         <div>
-            <Navbar bg="light" expand="lg">
+            <Navbar className="color-nav" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="/"><i class="fas fa-home"></i></Navbar.Brand>
+                    <Navbar.Brand style={{color:'white'}} href="/"><i class="fas fa-home"></i></Navbar.Brand>
 
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
                             className="me-auto my-2 my-lg-0"
-                            style={{ maxHeight: '200px' }}
+                            style={{ maxHeight: '200px' , backgroundColor: 'var(--red)'}}
                             navbarScroll
                         >
                             {/* <Nav.Link href="#action2"> Buscador </Nav.Link> */}
-                            <NavDropdown title=" Tu Equipo " id="navbarScrollingDropdown" hidden={show}>
+                            <NavDropdown style={{color:'white'}} title=" Tu Equipo " id="navbarScrollingDropdown" hidden={show}>
                                 <NavDropdown.Item href="/verEquipos">Ver Equipos</NavDropdown.Item>
                                 <NavDropdown.Item href="/guardarEquipo">Guardar Equipo</NavDropdown.Item>
                                 <NavDropdown.Divider />
@@ -47,7 +47,7 @@ export default function Barra()  {
 
                     </Navbar.Collapse>
                     
-                <Navbar.Brand><a hidden={optionRegister} href="/registerUser"><i class="fas fa-dragon"></i><i class="fas fa-user"></i> Hola Entrenador</a></Navbar.Brand>
+                <Navbar.Brand><a style={{color:'white'}} hidden={optionRegister} href="/registerUser"><i class="fas fa-dragon"></i><i class="fas fa-user"></i> Hola Entrenador</a></Navbar.Brand>
                 <Navbar.Brand hidden={show}>Hola {sessionStorage.getItem('name')} </Navbar.Brand>
                 <Navbar.Brand hidden={show} href="" onClick={() => out()} >  <i class="fas fa-user-times"></i></Navbar.Brand>                
                 </Container>

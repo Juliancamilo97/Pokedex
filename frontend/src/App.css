@@ -13,6 +13,10 @@
   justify-content: center;
 }
 
+.color-nav {
+  background-color: var(--red);
+}
+
 .imgPok {
   height: 16em;
   width: 16em;

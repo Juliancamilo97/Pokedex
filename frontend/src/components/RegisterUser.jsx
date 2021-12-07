@@ -40,7 +40,17 @@ import Swal from 'sweetalert2'
                 title:"Usuario creado correctamente",
                 showConfirmButton:false,
                 timer:1500
-            })                
+            })     
+            
+            const token = answer.data.token
+            const name = answer.data.name
+            const id = answer.data.id
+
+            sessionStorage.setItem('token', token)
+            sessionStorage.setItem('name', name)
+            sessionStorage.setItem('id', id)
+
+            
             setTimeout(()=>{
                 window.location.href='/'
             },1600)
